@@ -1,18 +1,23 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { getAnalytics } from 'firebase/analytics';
 
-// Configuration Firebase - À remplacer par vos vraies clés
+// Configuration Firebase - Clés réelles
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
+  apiKey: "AIzaSyD8yffVi3Lfjm-E93QiFTEA4FqBe5PTyWk",
+  authDomain: "celebration-mariage.firebaseapp.com",
+  projectId: "celebration-mariage",
+  storageBucket: "celebration-mariage.firebasestorage.app",
+  messagingSenderId: "333074020119",
+  appId: "1:333074020119:web:af67460c29075a81d32952",
+  measurementId: "G-NZB9NZ3TNM"
 };
 
 // Initialiser Firebase
 const app = initializeApp(firebaseConfig);
+
+// Initialiser Analytics (optionnel, pour le suivi des utilisateurs)
+export const analytics = typeof window !== 'undefined' ? getAnalytics(app) : null;
 
 // Initialiser Firestore
 export const db = getFirestore(app);
