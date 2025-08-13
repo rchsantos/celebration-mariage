@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import React from "react";
+import RSVPForm from "@/components/RSVPForm";
 
 function Section({ children, className = "" }: React.PropsWithChildren<{ className?: string }>) {
   return (
@@ -130,17 +131,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-2">RSVP avant le 1er septembre 2025</h2>
           <p className="text-lg text-gray-600">Merci de confirmer ta présence !</p>
         </div>
-        {/* Formulaire à compléter plus tard */}
-        <form className="bg-white rounded-xl shadow p-8 max-w-lg mx-auto flex flex-col gap-4">
-          <input type="text" placeholder="Nom" className="border rounded p-2" />
-          <input type="email" placeholder="Email" className="border rounded p-2" />
-          <select className="border rounded p-2">
-            <option>Je serai présent(e)</option>
-            <option>Je ne pourrai pas venir</option>
-          </select>
-          <textarea placeholder="Un petit mot ou une question ?" className="border rounded p-2" />
-          <button type="submit" className="bg-yellow-600 text-white rounded p-2 font-bold">Envoyer</button>
-        </form>
+        <RSVPForm />
       </Section>
 
       {/* SECTION FAQ */}
