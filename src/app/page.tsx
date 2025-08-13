@@ -128,7 +128,7 @@ export default function Home() {
       {/* SECTION RSVP (formulaire) */}
       <Section>
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold mb-2">RSVP avant le 1er septembre 2025</h2>
+          <h2 className="text-3xl font-bold mb-2">RSVP avant le 1er octobre 2025</h2>
           <p className="text-lg text-gray-600">Merci de confirmer ta présence !</p>
         </div>
         <RSVPForm />

@@ -90,7 +90,7 @@ Pour plus de sécurité, vous pouvez ajouter l'authentification Firebase :
 ## 📱 Fonctionnalités implémentées
 
 - ✅ **Formulaire RSVP** avec validation
-- ✅ **Date limite** (1er septembre 2025) avec vérification automatique
+- ✅ **Date limite** (1er octobre 2025) avec vérification automatique
 - ✅ **Compteur de jours** restants
 - ✅ **Stockage Firestore** avec timestamp
 - ✅ **Gestion des erreurs** et états de chargement

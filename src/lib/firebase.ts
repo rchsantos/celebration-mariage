@@ -32,7 +32,7 @@ export const addRSVP = async (data: Omit<RSVPData, 'timestamp' | 'dateLimite'>) 
   try {
     const rsvpData: RSVPData = {
       ...data,
-      dateLimite: '2025-09-01',
+      dateLimite: '2025-10-01',
       timestamp: serverTimestamp()
     };
     
@@ -46,7 +46,7 @@ export const addRSVP = async (data: Omit<RSVPData, 'timestamp' | 'dateLimite'>) 
 
 // Fonction pour vérifier si la date limite est dépassée
 export const isDateLimiteDepassee = (): boolean => {
-  const dateLimite = new Date('2025-09-01');
+  const dateLimite = new Date('2025-10-01');
   const aujourdhui = new Date();
   return aujourdhui > dateLimite;
 };

@@ -37,7 +37,7 @@ export default function RSVPForm() {
     e.preventDefault();
     
     if (dateLimiteDepassee) {
-      setErrorMessage('La date limite pour les RSVP est dépassée (1er septembre 2025)');
+      setErrorMessage('La date limite pour les RSVP est dépassée (1er octobre 2025)');
       return;
     }
     
@@ -74,7 +74,7 @@ export default function RSVPForm() {
           ⏰ Date limite dépassée
         </div>
         <p className="text-yellow-700">
-          La date limite pour confirmer votre présence était le 1er septembre 2025. 
+          La date limite pour confirmer votre présence était le 1er octobre 2025. 
           Merci de nous contacter directement pour toute question.
         </p>
       </div>
@@ -108,7 +108,7 @@ export default function RSVPForm() {
           ⏰ Jours restants pour confirmer votre présence
         </div>
         <div className="text-2xl font-bold text-blue-600">
-          {Math.max(0, Math.ceil((new Date('2025-09-01').getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)))}
+          {Math.max(0, Math.ceil((new Date('2025-10-01').getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)))}
         </div>
         <div className="text-blue-700 text-sm">jours</div>
       </div>
@@ -220,7 +220,7 @@ export default function RSVPForm() {
       <div className="mt-6 text-center text-sm text-gray-500">
         <p>* Champs obligatoires</p>
         <p className="mt-1">
-          <strong>Date limite : 1er septembre 2025</strong>
+          <strong>Date limite : 1er octobre 2025</strong>
         </p>
       </div>
     </form>
