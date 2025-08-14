@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import { startTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { addRSVP, isDateLimiteDepassee } from '@/lib/firebase/db';
 
@@ -32,26 +32,33 @@ export default function RSVPForm() {
 
   const onSubmit = async (data: RSVPFormData) => {
     if (dateLimiteDepassee) {
-      setError('root', {
-        type: 'manual',
-        message: 'La date limite pour les RSVP est dépassée (1er octobre 2025)',
-      });
+      startTransition(() =>
+        setError('root', {
+          type: 'manual',
+          message:
+            'La date limite pour les RSVP est dépassée (1er octobre 2025)',
+        }),
+      );
       return;
     }
 
     try {
       await addRSVP(data);
-      reset(
-        { nom: '', email: '', nombrePersonnes: 1, message: '' },
-        { keepIsSubmitted: true },
+      startTransition(() =>
+        reset(
+          { nom: '', email: '', nombrePersonnes: 1, message: '' },
+          { keepIsSubmitted: true },
+        ),
       );
     } catch (error) {
       console.error("Erreur lors de l'envoi:", error);
-      setError('root', {
-        type: 'server',
-        message:
-          "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
-      });
+      startTransition(() =>
+        setError('root', {
+          type: 'server',
+          message:
+            "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
+        }),
+      );
     }
   };
 
