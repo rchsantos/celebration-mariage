@@ -34,7 +34,7 @@ NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=G-NZB9NZ3TNM
 
 ## 🔒 Étape 3 : Configurer les règles de sécurité
 
-Dans Firestore Database > Règles, remplacez les règles par :
+Dans Firestore Database > Règles, remplacez les règles par le contenu du fichier [`firestore.rules`](./firestore.rules) :
 
 ```javascript
 rules_version = '2';
