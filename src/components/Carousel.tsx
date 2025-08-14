@@ -84,8 +84,15 @@ export default function Carousel() {
       {/* Barres de progression */}
       <div className="flex gap-2 w-full max-w-md mx-auto mb-4">
         {media.map((_, i) => (
-          <div key={i} className="flex-1 h-1 rounded-full bg-gray-300/60 overflow-hidden border border-gray-400/40 shadow-sm">
+          <div
+            key={i}
+            className="flex-1 h-1 rounded-full bg-gray-300/60 overflow-hidden border border-gray-400/40 shadow-sm"
+          >
             <div
+              role="progressbar"
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-valuenow={i === index ? progress : i < index ? 100 : 0}
               className={`h-full transition-all duration-300 ease-out rounded-full ${
                 i < index
                   ? 'bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 shadow-md progress-completed'
@@ -95,7 +102,11 @@ export default function Carousel() {
                       : 'bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 shadow-md'
                     : 'bg-gray-400/30'
               }`}
-              style={i === index ? { width: media[i].endsWith('.mp4') ? '100%' : `${progress}%` } : { width: i < index ? '100%' : '0%' }}
+              style={
+                i === index
+                  ? { width: media[i].endsWith('.mp4') ? '100%' : `${progress}%` }
+                  : { width: i < index ? '100%' : '0%' }
+              }
             />
           </div>
         ))}
