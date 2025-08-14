@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { addRSVP, isDateLimiteDepassee } from '@/lib/firebase';
+import { addRSVP, isDateLimiteDepassee } from '@/lib/firebase/db';
 
 interface RSVPFormData {
   nom: string;
