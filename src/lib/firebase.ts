@@ -1,16 +1,17 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { getAnalytics } from 'firebase/analytics';
+import { addDoc, collection, getFirestore, serverTimestamp, type FieldValue } from 'firebase/firestore';
 
-// Configuration Firebase - Clés réelles
+// Configuration Firebase via variables d'environnement
+// Les valeurs doivent être définies dans `.env.local`
 const firebaseConfig = {
-  apiKey: "AIzaSyD8yffVi3Lfjm-E93QiFTEA4FqBe5PTyWk",
-  authDomain: "celebration-mariage.firebaseapp.com",
-  projectId: "celebration-mariage",
-  storageBucket: "celebration-mariage.firebasestorage.app",
-  messagingSenderId: "333074020119",
-  appId: "1:333074020119:web:af67460c29075a81d32952",
-  measurementId: "G-NZB9NZ3TNM"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY as string,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN as string,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID as string,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET as string,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID as string,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID as string,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID as string,
 };
 
 // Initialiser Firebase
@@ -29,7 +30,7 @@ export interface RSVPData {
   nombrePersonnes: number;
   message?: string;
   dateLimite: string;
-  timestamp: any;
+  timestamp: FieldValue;
 }
 
 // Fonction pour ajouter un RSVP

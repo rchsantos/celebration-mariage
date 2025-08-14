@@ -48,7 +48,7 @@ export default function Home() {
               <span>{countdown.days} jours</span>
             </div>
           ) : (
-            <div className="text-2xl font-semibold mt-4">C'est le grand jour !</div>
+            <div className="text-2xl font-semibold mt-4">C&apos;est le grand jour !</div>
           )}
         </div>
         {/* Icône souris animé pour scroller */}
@@ -77,7 +77,7 @@ export default function Home() {
           <div className="bg-white rounded-xl shadow p-6 text-center">
             <div className="text-xl font-bold mb-2">Cérémonie</div>
             <div className="text-gray-500">Samedi 11 octobre 2025</div>
-            <div className="mt-2 text-gray-700 text-sm">La cérémonie officielle et l'échange des vœux.</div>
+            <div className="mt-2 text-gray-700 text-sm">La cérémonie officielle et l&apos;échange des vœux.</div>
           </div>
         </div>
       </Section>
@@ -86,7 +86,7 @@ export default function Home() {
       <Section>
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold mb-2">Bien sûr, vous nous connaissez déjà...</h2>
-          <p className="text-lg text-gray-600">Mais voici comment nous nous voyons l'un l'autre !</p>
+            <p className="text-lg text-gray-600">Mais voici comment nous nous voyons l&apos;un l&apos;autre !</p>
         </div>
         <div className="flex flex-col gap-8">
           {/* Camila */}
@@ -144,7 +144,7 @@ export default function Home() {
         <div className="bg-white rounded-xl shadow p-6 max-w-2xl mx-auto">
           <details className="mb-2">
             <summary className="font-bold cursor-pointer">Où a lieu la cérémonie ?</summary>
-            <div className="text-gray-600 text-sm mt-1">La cérémonie aura lieu à l'état civil de la ville de Genève, Rue de la Mairie 37, 1207 Genève. Le bâtiment est facilement accessible par les transports publics et des parkings publics sont disponibles tout autour du bâtiment.</div>
+              <div className="text-gray-600 text-sm mt-1">La cérémonie aura lieu à l&apos;état civil de la ville de Genève, Rue de la Mairie 37, 1207 Genève. Le bâtiment est facilement accessible par les transports publics et des parkings publics sont disponibles tout autour du bâtiment.</div>
           </details>
           <details className="mb-2">
             <summary className="font-bold cursor-pointer">Puis-je vous faire un cadeau ou une contribution ?</summary>
@@ -152,7 +152,7 @@ export default function Home() {
           </details>
           <details className="mb-2">
             <summary className="font-bold cursor-pointer">Puis-je prendre des photos&nbsp;?</summary>
-            <div className="text-gray-600 text-sm mt-1">Bien sûr, n'hésitez pas à prendre des photos pour immortaliser cette journée ! Nous vous serions reconnaissants de partager vos plus beaux clichés avec nous après l'événement.</div>
+              <div className="text-gray-600 text-sm mt-1">Bien sûr, n&apos;hésitez pas à prendre des photos pour immortaliser cette journée ! Nous vous serions reconnaissants de partager vos plus beaux clichés avec nous après l&apos;événement.</div>
           </details>
           {/* Ajouter d'autres questions ici */}
         </div>
@@ -162,25 +162,28 @@ export default function Home() {
 }
 
 // Carrousel type Stories Instagram (à placer en bas du fichier)
-function Carousel() {
-  const media = [
-    "/couple1.jpg",
-    "/couple2.jpg",
-    "/couple3.jpg",
-    "/couple4.jpg",
-    "/couple5.jpg",
-    "/couple6.jpg",
-    "/couple7.jpg",
-    "/couple8.jpg",
-    "/couple9.jpg",
-    "/couple10.jpg",
-    "/couple11.jpg",
-    "/couple12.jpg",
-    "/couple13.jpg",
-    "/couple14.jpg",
-    "/reel1.mp4",
-    "/couple15.jpg"
-  ];
+  function Carousel() {
+    const media = React.useMemo(
+      () => [
+        "/couple1.jpg",
+        "/couple2.jpg",
+        "/couple3.jpg",
+        "/couple4.jpg",
+        "/couple5.jpg",
+        "/couple6.jpg",
+        "/couple7.jpg",
+        "/couple8.jpg",
+        "/couple9.jpg",
+        "/couple10.jpg",
+        "/couple11.jpg",
+        "/couple12.jpg",
+        "/couple13.jpg",
+        "/couple14.jpg",
+        "/reel1.mp4",
+        "/couple15.jpg",
+      ],
+      []
+    );
   
   const [index, setIndex] = React.useState(0);
   const [isPaused, setIsPaused] = React.useState(false);
@@ -188,8 +191,8 @@ function Carousel() {
   const STORY_DURATION = 3000; // 3 secondes par story
   
   // Timer pour la progression en temps réel
-  React.useEffect(() => {
-    if (isPaused) return;
+    React.useEffect(() => {
+      if (isPaused) return;
     
     // Pour les vidéos, on ne gère pas la progression automatique
     if (media[index].endsWith('.mp4')) {
@@ -210,7 +213,7 @@ function Carousel() {
     }, 50); // Mise à jour toutes les 50ms pour une animation fluide
     
     return () => clearInterval(interval);
-  }, [index, isPaused, media.length]);
+    }, [index, isPaused, media]);
   
   // Reset progress quand l'index change
   React.useEffect(() => {
