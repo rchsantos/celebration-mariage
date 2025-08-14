@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 import { addDoc, collection, getFirestore, serverTimestamp, type FieldValue } from 'firebase/firestore';
+import { getAuth, signInAnonymously } from 'firebase/auth';
 
 // Configuration Firebase via variables d'environnement
 // Les valeurs doivent être définies dans `.env.local`
@@ -22,6 +23,8 @@ export const analytics = typeof window !== 'undefined' ? getAnalytics(app) : nul
 
 // Initialiser Firestore
 export const db = getFirestore(app);
+// Initialiser Authentification
+const auth = getAuth(app);
 
 // Interface pour les données RSVP
 export interface RSVPData {
@@ -36,12 +39,17 @@ export interface RSVPData {
 // Fonction pour ajouter un RSVP
 export const addRSVP = async (data: Omit<RSVPData, 'timestamp' | 'dateLimite'>) => {
   try {
+    // Authentification anonyme pour respecter les règles Firestore qui demandent un utilisateur
+    if (!auth.currentUser) {
+      await signInAnonymously(auth);
+    }
+
     const rsvpData: RSVPData = {
       ...data,
       dateLimite: '2025-10-01',
       timestamp: serverTimestamp()
     };
-    
+
     const docRef = await addDoc(collection(db, 'rsvp'), rsvpData);
     return { success: true, id: docRef.id };
   } catch (error) {
