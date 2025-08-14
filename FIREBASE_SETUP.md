@@ -22,7 +22,7 @@
 
 ### 3. Configurer les règles de sécurité Firestore
 1. Dans Firestore Database, allez dans l'onglet "Règles"
-2. Remplacez les règles par défaut par :
+2. Copiez le contenu du fichier [`firestore.rules`](./firestore.rules) et remplacez les règles par défaut :
 
 ```javascript
 rules_version = '2';
