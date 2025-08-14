@@ -27,6 +27,16 @@ function getCountdown() {
 
 export default function Home() {
   const [countdown, setCountdown] = useState(getCountdown());
+  const [isPaused, setIsPaused] = useState(false);
+
+  const handleCarouselKeyDown = (
+    e: React.KeyboardEvent<HTMLDivElement>
+  ) => {
+    if (e.key === ' ' || e.key === 'p' || e.key === 'P') {
+      e.preventDefault();
+      setIsPaused((prev) => !prev);
+    }
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -123,7 +133,21 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-2">Galerie de souvenirs</h2>
           <p className="text-lg text-gray-600">Quelques moments précieux</p>
         </div>
-        <Carousel />
+        <div
+          tabIndex={0}
+          onKeyDown={handleCarouselKeyDown}
+          className="flex flex-col items-center"
+        >
+          <Carousel isPaused={isPaused} setIsPaused={setIsPaused} />
+          <button
+            onClick={() => setIsPaused((prev) => !prev)}
+            aria-pressed={isPaused}
+            aria-label={isPaused ? 'Resume carousel' : 'Pause carousel'}
+            className="mt-4 px-4 py-2 bg-gray-700 text-white rounded"
+          >
+            {isPaused ? 'Resume' : 'Pause'}
+          </button>
+        </div>
       </Section>
 
       {/* SECTION RSVP (formulaire) */}
