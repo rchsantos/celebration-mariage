@@ -3,7 +3,12 @@
 import React from 'react';
 import Image from 'next/image';
 
-export default function Carousel() {
+interface CarouselProps {
+  isPaused: boolean;
+  setIsPaused: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function Carousel({ isPaused, setIsPaused }: CarouselProps) {
   const media = React.useMemo(
     () => [
       "/couple1.jpg",
@@ -27,7 +32,6 @@ export default function Carousel() {
   );
 
   const [index, setIndex] = React.useState(0);
-  const [isPaused, setIsPaused] = React.useState(false);
   const [progress, setProgress] = React.useState(0);
   const STORY_DURATION = 3000; // 3 secondes par story
 
