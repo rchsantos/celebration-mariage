@@ -2,6 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 import { addDoc, collection, getFirestore, serverTimestamp, type FieldValue } from 'firebase/firestore';
 import { getAuth, signInAnonymously } from 'firebase/auth';
+import { RSVP_DEADLINE } from './firebase/config';
 
 // Configuration Firebase via variables d'environnement
 // Les valeurs doivent être définies dans `.env.local`
@@ -46,7 +47,7 @@ export const addRSVP = async (data: Omit<RSVPData, 'timestamp' | 'dateLimite'>) 
 
     const rsvpData: RSVPData = {
       ...data,
-      dateLimite: '2025-10-01',
+      dateLimite: RSVP_DEADLINE,
       timestamp: serverTimestamp()
     };
 
@@ -60,7 +61,7 @@ export const addRSVP = async (data: Omit<RSVPData, 'timestamp' | 'dateLimite'>) 
 
 // Fonction pour vérifier si la date limite est dépassée
 export const isDateLimiteDepassee = (): boolean => {
-  const dateLimite = new Date('2025-10-01');
+  const dateLimite = new Date(RSVP_DEADLINE);
   const aujourdhui = new Date();
   return aujourdhui > dateLimite;
 };
