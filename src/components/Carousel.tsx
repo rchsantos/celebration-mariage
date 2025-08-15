@@ -8,25 +8,31 @@ interface CarouselProps {
   setIsPaused: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+type MediaItem = {
+  src: string;
+  alt: string;
+  type: 'image' | 'video';
+};
+
 export default function Carousel({ isPaused, setIsPaused }: CarouselProps) {
-  const media = React.useMemo(
+  const media = React.useMemo<MediaItem[]>(
     () => [
-      "/couple1.jpg",
-      "/couple2.jpg",
-      "/couple3.jpg",
-      "/couple4.jpg",
-      "/couple5.jpg",
-      "/couple6.jpg",
-      "/couple7.jpg",
-      "/couple8.jpg",
-      "/couple9.jpg",
-      "/couple10.jpg",
-      "/couple11.jpg",
-      "/couple12.jpg",
-      "/couple13.jpg",
-      "/couple14.jpg",
-      "/reel1.mp4",
-      "/couple15.jpg",
+      { src: '/media/carousel/couple1.jpg', alt: 'Souvenir 1', type: 'image' },
+      { src: '/media/carousel/couple2.jpg', alt: 'Souvenir 2', type: 'image' },
+      { src: '/media/carousel/couple3.jpg', alt: 'Souvenir 3', type: 'image' },
+      { src: '/media/carousel/couple4.jpg', alt: 'Souvenir 4', type: 'image' },
+      { src: '/media/carousel/couple5.jpg', alt: 'Souvenir 5', type: 'image' },
+      { src: '/media/carousel/couple6.jpg', alt: 'Souvenir 6', type: 'image' },
+      { src: '/media/carousel/couple7.jpg', alt: 'Souvenir 7', type: 'image' },
+      { src: '/media/carousel/couple8.jpg', alt: 'Souvenir 8', type: 'image' },
+      { src: '/media/carousel/couple9.jpg', alt: 'Souvenir 9', type: 'image' },
+      { src: '/media/carousel/couple10.jpg', alt: 'Souvenir 10', type: 'image' },
+      { src: '/media/carousel/couple11.jpg', alt: 'Souvenir 11', type: 'image' },
+      { src: '/media/carousel/couple12.jpg', alt: 'Souvenir 12', type: 'image' },
+      { src: '/media/carousel/couple13.jpg', alt: 'Souvenir 13', type: 'image' },
+      { src: '/media/carousel/couple14.jpg', alt: 'Souvenir 14', type: 'image' },
+      { src: '/media/carousel/reel1.mp4', alt: 'Souvenir vidéo', type: 'video' },
+      { src: '/media/carousel/couple15.jpg', alt: 'Souvenir 15', type: 'image' },
     ],
     []
   );
@@ -40,7 +46,7 @@ export default function Carousel({ isPaused, setIsPaused }: CarouselProps) {
     if (isPaused) return;
 
     // Pour les vidéos, on ne gère pas la progression automatique
-    if (media[index].endsWith('.mp4')) {
+    if (media[index].type === 'video') {
       setProgress(0);
       return;
     }
@@ -87,7 +93,7 @@ export default function Carousel({ isPaused, setIsPaused }: CarouselProps) {
     <div className="relative w-full flex flex-col items-center justify-center">
       {/* Barres de progression */}
       <div className="flex gap-2 w-full max-w-md mx-auto mb-4">
-        {media.map((_, i) => (
+        {media.map((item, i) => (
           <div
             key={i}
             className="flex-1 h-1 rounded-full bg-gray-300/60 overflow-hidden border border-gray-400/40 shadow-sm"
@@ -101,14 +107,14 @@ export default function Carousel({ isPaused, setIsPaused }: CarouselProps) {
                 i < index
                   ? 'bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 shadow-md progress-completed'
                   : i === index
-                    ? media[i].endsWith('.mp4')
+                    ? item.type === 'video'
                       ? 'bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-md animate-pulse'
                       : 'bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 shadow-md'
                     : 'bg-gray-400/30'
               }`}
               style={
                 i === index
-                  ? { width: media[i].endsWith('.mp4') ? '100%' : `${progress}%` }
+                  ? { width: item.type === 'video' ? '100%' : `${progress}%` }
                   : { width: i < index ? '100%' : '0%' }
               }
             />
@@ -126,9 +132,9 @@ export default function Carousel({ isPaused, setIsPaused }: CarouselProps) {
           onMouseUp={handleTouchEnd}
           onMouseLeave={handleTouchEnd}
         >
-          {media[index].endsWith('.mp4') ? (
+          {media[index].type === 'video' ? (
             <video
-              src={media[index]}
+              src={media[index].src}
               controls
               autoPlay
               muted
@@ -146,7 +152,7 @@ export default function Carousel({ isPaused, setIsPaused }: CarouselProps) {
               }}
             />
           ) : (
-            <Image src={media[index]} alt={`Souvenir ${index+1}`} fill className="object-cover transition-all duration-500" />
+            <Image src={media[index].src} alt={media[index].alt} fill className="object-cover transition-all duration-500" />
           )}
 
           {/* Zones de tap pour navigation */}
