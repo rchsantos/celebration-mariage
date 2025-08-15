@@ -12,27 +12,108 @@ type MediaItem = {
   src: string;
   alt: string;
   type: 'image' | 'video';
+  extension: 'jpg' | 'png' | 'mp4';
 };
 
 export default function Carousel({ isPaused, setIsPaused }: CarouselProps) {
   const media = React.useMemo<MediaItem[]>(
     () => [
-      { src: '/media/carousel/couple1.jpg', alt: 'Souvenir 1', type: 'image' },
-      { src: '/media/carousel/couple2.jpg', alt: 'Souvenir 2', type: 'image' },
-      { src: '/media/carousel/couple3.jpg', alt: 'Souvenir 3', type: 'image' },
-      { src: '/media/carousel/couple4.jpg', alt: 'Souvenir 4', type: 'image' },
-      { src: '/media/carousel/couple5.jpg', alt: 'Souvenir 5', type: 'image' },
-      { src: '/media/carousel/couple6.jpg', alt: 'Souvenir 6', type: 'image' },
-      { src: '/media/carousel/couple7.jpg', alt: 'Souvenir 7', type: 'image' },
-      { src: '/media/carousel/couple8.jpg', alt: 'Souvenir 8', type: 'image' },
-      { src: '/media/carousel/couple9.jpg', alt: 'Souvenir 9', type: 'image' },
-      { src: '/media/carousel/couple10.jpg', alt: 'Souvenir 10', type: 'image' },
-      { src: '/media/carousel/couple11.jpg', alt: 'Souvenir 11', type: 'image' },
-      { src: '/media/carousel/couple12.jpg', alt: 'Souvenir 12', type: 'image' },
-      { src: '/media/carousel/couple13.jpg', alt: 'Souvenir 13', type: 'image' },
-      { src: '/media/carousel/couple14.jpg', alt: 'Souvenir 14', type: 'image' },
-      { src: '/media/carousel/reel1.mp4', alt: 'Souvenir vidéo', type: 'video' },
-      { src: '/media/carousel/couple15.jpg', alt: 'Souvenir 15', type: 'image' },
+      {
+        src: '/media/carousel/couple1.jpg',
+        alt: 'Souvenir 1',
+        type: 'image',
+        extension: 'jpg',
+      },
+      {
+        src: '/media/carousel/couple2.jpg',
+        alt: 'Souvenir 2',
+        type: 'image',
+        extension: 'jpg',
+      },
+      {
+        src: '/media/carousel/couple3.jpg',
+        alt: 'Souvenir 3',
+        type: 'image',
+        extension: 'jpg',
+      },
+      {
+        src: '/media/carousel/couple4.jpg',
+        alt: 'Souvenir 4',
+        type: 'image',
+        extension: 'jpg',
+      },
+      {
+        src: '/media/carousel/couple5.jpg',
+        alt: 'Souvenir 5',
+        type: 'image',
+        extension: 'jpg',
+      },
+      {
+        src: '/media/carousel/couple6.jpg',
+        alt: 'Souvenir 6',
+        type: 'image',
+        extension: 'jpg',
+      },
+      {
+        src: '/media/carousel/couple7.jpg',
+        alt: 'Souvenir 7',
+        type: 'image',
+        extension: 'jpg',
+      },
+      {
+        src: '/media/carousel/couple8.jpg',
+        alt: 'Souvenir 8',
+        type: 'image',
+        extension: 'jpg',
+      },
+      {
+        src: '/media/carousel/couple9.jpg',
+        alt: 'Souvenir 9',
+        type: 'image',
+        extension: 'jpg',
+      },
+      {
+        src: '/media/carousel/couple10.jpg',
+        alt: 'Souvenir 10',
+        type: 'image',
+        extension: 'jpg',
+      },
+      {
+        src: '/media/carousel/couple11.jpg',
+        alt: 'Souvenir 11',
+        type: 'image',
+        extension: 'jpg',
+      },
+      {
+        src: '/media/carousel/couple12.jpg',
+        alt: 'Souvenir 12',
+        type: 'image',
+        extension: 'jpg',
+      },
+      {
+        src: '/media/carousel/couple13.jpg',
+        alt: 'Souvenir 13',
+        type: 'image',
+        extension: 'jpg',
+      },
+      {
+        src: '/media/carousel/couple14.jpg',
+        alt: 'Souvenir 14',
+        type: 'image',
+        extension: 'jpg',
+      },
+      {
+        src: '/media/carousel/reel1.mp4',
+        alt: 'Souvenir vidéo',
+        type: 'video',
+        extension: 'mp4',
+      },
+      {
+        src: '/media/carousel/couple15.jpg',
+        alt: 'Souvenir 15',
+        type: 'image',
+        extension: 'jpg',
+      },
     ],
     []
   );
