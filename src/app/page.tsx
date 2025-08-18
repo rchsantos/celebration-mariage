@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import React from "react";
 import Carousel from "@/components/Carousel";
@@ -81,48 +80,9 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center place-items-center">
           {/* Cartes à remplir */}
           <div className="bg-white rounded-xl shadow p-6 text-center">
-            <div className="text-xl font-bold mb-2">Pré-soirée</div>
-            <div className="text-gray-500">Vendredi 10 octobre 2025</div>
-            <div className="mt-2 text-gray-700 text-sm">Soirée conviviale pour lancer le week-end !</div>
-          </div>
-          <div className="bg-white rounded-xl shadow p-6 text-center">
             <div className="text-xl font-bold mb-2">Cérémonie</div>
             <div className="text-gray-500">Samedi 11 octobre 2025</div>
             <div className="mt-2 text-gray-700 text-sm">La cérémonie officielle et l&apos;échange des vœux.</div>
-          </div>
-        </div>
-      </Section>
-
-      {/* SECTION PRÉSENTATION DU COUPLE */}
-      <Section>
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold mb-2">Bien sûr, vous nous connaissez déjà...</h2>
-            <p className="text-lg text-gray-600">Mais voici comment nous nous voyons l&apos;un l&apos;autre !</p>
-        </div>
-        <div className="flex flex-col gap-8">
-          {/* Camila */}
-          <div className="flex flex-col md:flex-row items-stretch gap-8 h-64">
-            <div className="relative w-full md:w-1/3 h-64">
-              <Image src="/couple.jpg" alt="La mariée" fill className="rounded-xl object-cover" />
-            </div>
-            <div className="flex-1 flex items-center justify-center text-center md:text-left">
-              <div>
-                <div className="font-bold text-xl mb-2">Camila</div>
-                <div className="text-gray-600 text-base max-w-xl">Toujours souriante, passionnée de voyages et de cuisine. Elle adore organiser des surprises et partager des moments avec ses proches.</div>
-              </div>
-            </div>
-          </div>
-          {/* Richardson */}
-          <div className="flex flex-col md:flex-row-reverse items-stretch gap-8 h-64">
-            <div className="relative w-full md:w-1/3 h-64">
-              <Image src="/couple.jpg" alt="Le marié" fill className="rounded-xl object-cover" />
-            </div>
-            <div className="flex-1 flex items-center justify-center text-center md:text-right">
-              <div>
-                <div className="font-bold text-xl mb-2">Richardson</div>
-                <div className="text-gray-600 text-base max-w-xl">Épicurien, amateur de musique et de sport. Toujours prêt à faire rire et à vivre de nouvelles aventures.</div>
-              </div>
-            </div>
           </div>
         </div>
       </Section>
