@@ -13,7 +13,24 @@ const RSVPForm = dynamic(() => import("@/components/RSVPForm"), {
 
 function Section({ children, className = "" }: React.PropsWithChildren<{ className?: string }>) {
   return (
-    <section className={`w-full max-w-5xl mx-auto py-12 px-4 ${className}`}>
+    <section className={`relative w-full max-w-5xl mx-auto py-12 px-4 ${className}`}>
+      {/* Décorations florales animées */}
+      <Image
+        src="/flower.svg"
+        alt=""
+        width={80}
+        height={80}
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute -top-6 -left-6 opacity-70 animate-float-slow"
+      />
+      <Image
+        src="/flower.svg"
+        alt=""
+        width={80}
+        height={80}
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute -bottom-6 -right-6 opacity-70 animate-float-slow"
+      />
       {children}
     </section>
   );
