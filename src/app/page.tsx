@@ -58,8 +58,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 flex flex-col items-center text-white text-center">
           <h2 className="text-lg tracking-widest mb-2">SAVE THE DATE</h2>
-          <h1 className="text-8xl sm:text-8xl font-bold font-serif mb-2">Camila & Richardson</h1>
-          <div className="text-5xl mb-2">11 octobre 2025</div>
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold font-serif mb-2 leading-tight px-4">Camila & Richardson</h1>
+          <div className="text-2xl sm:text-4xl md:text-5xl mb-2 px-4">11 octobre 2025</div>
           {countdown ? (
             <div className="flex gap-4 text-2xl font-mono justify-center">
               <span>{countdown.days} jours</span>
