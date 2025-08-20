@@ -1,8 +1,15 @@
 "use client";
 import { useEffect, useState } from "react";
 import React from "react";
-import Carousel from "@/components/Carousel";
-import RSVPForm from "@/components/RSVPForm";
+import dynamic from "next/dynamic";
+
+const Carousel = dynamic(() => import("@/components/Carousel"), {
+  loading: () => <div>Chargement...</div>,
+});
+
+const RSVPForm = dynamic(() => import("@/components/RSVPForm"), {
+  loading: () => <div>Chargement...</div>,
+});
 
 function Section({ children, className = "" }: React.PropsWithChildren<{ className?: string }>) {
   return (
