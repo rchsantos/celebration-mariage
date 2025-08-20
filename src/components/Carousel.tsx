@@ -204,7 +204,7 @@ export default function Carousel({ isPaused, setIsPaused }: CarouselProps) {
       </div>
 
       {/* Container stories vertical iPhone */}
-      <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto">
+      <div className="relative w-full max-w-sm md:max-w-md lg:max-w-lg mx-auto">
         <div
           className="relative w-full aspect-[9/19.5] rounded-xl overflow-hidden shadow-lg cursor-pointer"
           onTouchStart={handleTouchStart}
@@ -234,7 +234,12 @@ export default function Carousel({ isPaused, setIsPaused }: CarouselProps) {
               }}
             />
           ) : (
-            <Image src={media[index].src} alt={media[index].alt} fill className="object-cover transition-all duration-500" />
+            <Image
+              src={media[index].src}
+              alt={media[index].alt}
+              fill
+              className="object-cover w-full h-full transition-all duration-500"
+            />
           )}
 
           {/* Zones de tap pour navigation */}
