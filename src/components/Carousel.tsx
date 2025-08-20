@@ -218,6 +218,7 @@ export default function Carousel({ isPaused, setIsPaused }: CarouselProps) {
               src={media[index].src}
               controls
               autoPlay
+              preload="metadata"
               muted
               className="object-cover w-full h-full"
               onEnded={() => {
