@@ -138,6 +138,10 @@ export default function Home() {
         {/* FAQ à compléter plus tard */}
         <div className="bg-white rounded-xl shadow p-6 max-w-2xl mx-auto">
           <details className="mb-2">
+            <summary className="font-bold cursor-pointer">À quelle heure commence la cérémonie&nbsp;?</summary>
+            <div className="text-gray-600 text-sm mt-1">La cérémonie démarrera à 10h00 précises et durera environ 30&nbsp;minutes. Nous commencerons à l&apos;heure prévue, merci d&apos;arriver légèrement en avance.</div>
+          </details>
+          <details className="mb-2">
             <summary className="font-bold cursor-pointer">Où a lieu la cérémonie ?</summary>
               <div className="text-gray-600 text-sm mt-1">La cérémonie aura lieu à l&apos;état civil de la ville de Genève, Rue de la Mairie 37, 1207 Genève. Le bâtiment est facilement accessible par les transports publics et des parkings publics sont disponibles tout autour du bâtiment.</div>
           </details>
