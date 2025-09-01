@@ -54,7 +54,10 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center w-full min-h-screen bg-[#f8f6f2]">
       {/* HERO avec image de fond, titre, compte à rebours */}
-      <div className="relative w-full h-screen flex items-center justify-center bg-cover bg-center" style={{backgroundImage: "url('/couple.jpg')"}}>
+      <div
+        className="relative w-full h-screen flex items-center justify-center bg-cover bg-right md:bg-center"
+        style={{ backgroundImage: "url('/couple.jpg')" }}
+      >
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 flex flex-col items-center text-white text-center">
           <h2 className="text-lg tracking-widest mb-2">SAVE THE DATE</h2>
