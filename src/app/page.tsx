@@ -133,7 +133,7 @@ export default function Home() {
       <Section>
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold mb-2">Questions fréquentes</h2>
-          <p className="text-lg text-gray-600">Vous ne voulez pas manquer ces infos !</p>
+          <p className="text-lg text-gray-600">Tu ne veux pas manquer ces infos !</p>
         </div>
         {/* FAQ à compléter plus tard */}
         <div className="bg-white rounded-xl shadow p-6 max-w-2xl mx-auto">
@@ -142,8 +142,8 @@ export default function Home() {
               <div className="text-gray-600 text-sm mt-1">La cérémonie aura lieu à l&apos;état civil de la ville de Genève, Rue de la Mairie 37, 1207 Genève. Le bâtiment est facilement accessible par les transports publics et des parkings publics sont disponibles tout autour du bâtiment.</div>
           </details>
           <details className="mb-2">
-            <summary className="font-bold cursor-pointer">Puis-je vous faire un cadeau ou une contribution ?</summary>
-            <div className="text-gray-600 text-sm mt-1">Ta présence est le plus beau des cadeaux ! Mais si vous souhaitez nous faire un geste, Tu peux nous contacter pour les détails.</div>
+            <summary className="font-bold cursor-pointer">Puis-je te faire un cadeau ou une contribution ?</summary>
+            <div className="text-gray-600 text-sm mt-1">Ta présence est le plus beau des cadeaux ! Mais si tu souhaites nous faire un geste, tu peux nous contacter pour les détails.</div>
           </details>
           <details className="mb-2">
             <summary className="font-bold cursor-pointer">Puis-je prendre des photos&nbsp;?</summary>
